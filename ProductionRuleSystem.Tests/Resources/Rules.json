@@ -1,10 +1,24 @@
-{
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
-}
+[
+  {
+    "Name": "Close opened issues",
+    "Description": "",
+    "Conditions": [
+      {
+        "Expression": {
+          "Variable": "ISSUE.STATE",
+          "Value": "open",
+          "Operator": "="
+        }
+      }
+    ],
+    "Actions": [
+      {
+        "Expression": {
+          "Variable": "ISSUE.STATE",
+          "Value": "open",
+          "Operator": "="
+        }
+      }
+    ]
+  }
+]

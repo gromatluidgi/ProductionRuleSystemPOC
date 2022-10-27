@@ -1,32 +1,38 @@
-# Generic Behaviors Playground
-
-
+# Production Rule System Playground
 
 ```mermaid
 sequenceDiagram
-    participant Entity
+    participant DomainObject
     participant Engine
-    participant Behavior
-    participant Criteria
+    participant Facts
+    participant Rules
 
-    Entity->>+Engine: Abstract Factory
-    Engine->>+Behavior: Processing
-    Behavior->>+Criteria: Validation
-    Criteria->>+Engine: Criterias match for behavior
-    Engine->>+Behavior: Execution
+    DomainObject->>+Engine: Input
+    Engine->>+Facts: Processing
+    Facts->>+Rules: Validation
+    Rules->>+Engine: Rules match for facts
+    Engine->>+Rules: Execution
+    Rules->>+Facts: Alter
 ```
 
-Entities
+## Concepts
 
-Tick
+### Expert System
 
+- https://en.wikibooks.org/wiki/Expert_Systems
 
-IHM -> Fetch tick (TASK) -> Pass into Business Engine -> Fetch Behavior -> Log(N,nE) -> Match Criteria -> Engine return results
+### Inference Engine
 
+- http://www.cse.unsw.edu.au/~cs9416/01-Overview/overview.html
 
-Scoped Task -> Business Engine -> 
+### Proposional Logic / Propositional Calculus
 
-Engine Result
+- https://iep.utm.edu/prop-log/
+- https://discrete.openmathbooks.org/dmoi2/sec_propositional.html
+- https://brilliant.org/wiki/propositional-logic/ <3
 
-If scope, apply any rule associated
-If no scope, use criteria for dynamic trigger
+## Definitions
+
+- Forward Chaining
+- Backward Chaining
+- Truth Table

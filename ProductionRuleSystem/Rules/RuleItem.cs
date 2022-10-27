@@ -1,8 +1,7 @@
 ﻿using BehavioralCriterias.Core.Rules;
 using ProductionRuleSystem.Core;
-using System;
+using ProductionRuleSystem.Core.Rules;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BehavioralCriterias.Rules
 {
@@ -31,15 +30,17 @@ namespace BehavioralCriterias.Rules
 
         public override bool Evaluate(IWorkingMemory memory)
         {
+            // Evaluate if every specified condition match a fact
             foreach(var condition in _conditions.Conditions)
             {
-                if (!memory.IsFact(condition.Expression)) return false;
+                if (!memory.IsFact(condition)) return false;
             }
             return true;
         }
 
-        public override void Execute(IWorkingMemory memory)
+        public override IEnumerable<RuleActionResult> Execute(IWorkingMemory workingMemory)
         {
+            return _actions.Execute(workingMemory);
         }
     }
 }

@@ -4,7 +4,13 @@ using System.Text;
 
 namespace BehavioralCriterias.Domain
 {
-    internal class Issue
+    public class Issue
     {
+        public Issue(string state)
+        {
+            State = state;
+        }
+
+        public string State { get; set; }
     }
 }

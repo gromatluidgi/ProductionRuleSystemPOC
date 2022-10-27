@@ -1,5 +1,6 @@
 ﻿using BehavioralCriterias.Core.Rules;
 using ProductionRuleSystem.Core;
+using ProductionRuleSystem.Core.Rules;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,8 @@ namespace BehavioralCriterias.Core.Rules
         /// Consequents
         /// </summary>
         public abstract RuleActionGroup Actions { get; }
+
         public abstract bool Evaluate(IWorkingMemory memory);
-        public abstract void Execute(IWorkingMemory memory);
+        public abstract IEnumerable<RuleActionResult> Execute(IWorkingMemory workingMemory);
     }
 }

@@ -1,12 +1,14 @@
 ﻿using BehavioralCriterias.Core.Ast;
 using BehavioralCriterias.Core.Rules;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace ProductionRuleSystem.Conditions
 {
-    public class IssueCondition : RuleCondition
+    public class CustomerCondition : RuleCondition
     {
-        public IssueCondition(string variable, string value, string ope) : base(variable, value, ope)
+        public CustomerCondition(string variable, string value, string ope) : base(variable, value, ope)
         {
         }
 

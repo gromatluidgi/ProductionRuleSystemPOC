@@ -10,6 +10,6 @@ namespace ProductionRuleSystem.Core
 
         IWorkingMemory WorkingMemory { get; }
 
-
+        void ForwardChaining();
     }
 }

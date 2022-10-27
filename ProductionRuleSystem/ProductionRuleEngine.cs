@@ -24,7 +24,7 @@ namespace BehavioralCriterias
             {
                 rule.Execute(_workingMemory);
             }
-        }
 
+        }
     }
 }

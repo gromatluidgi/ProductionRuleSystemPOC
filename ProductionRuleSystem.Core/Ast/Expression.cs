@@ -5,16 +5,28 @@ using System.Text;
 
 namespace BehavioralCriterias.Core.Ast
 {
-    public class Expression
+    public abstract class Expression
     {
-        public Expression()
-        {
+        private readonly string _variable;
+        private readonly string _value;
+        private readonly string _operator = "";
 
+        protected Expression(string variable, string value)
+        {
+            _variable = variable;
+            _value = value;
         }
 
-        public string Variable { get; }
-        public string Value { get; }
-        public string Operator { get; }
+        protected Expression(string variable, string value, string ope)
+        {
+            _variable = variable;
+            _value = value;
+            _operator = ope;
+        }
+
+        public string Variable => _variable;
+        public string Value => _value;
+        public string Operator => _operator;
 
         /// <summary>
         /// 
@@ -23,6 +35,8 @@ namespace BehavioralCriterias.Core.Ast
         /// <returns></returns>
         public virtual IntersectionType MatchExpression(Expression rhs)
         {
+            // Ensure that the given expression type match the current expression
+            // If not, the evaluation can't be performed
             if (Variable != rhs.Variable)
             {
                 return IntersectionType.UNKNOWN;

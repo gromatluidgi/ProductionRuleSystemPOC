@@ -14,11 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Rules\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ProductionRuleSystem\ProductionRuleSystem.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties resources_4rules_1json__JsonSchema="[" /></VisualStudio></ProjectExtensions>
 
 </Project>
