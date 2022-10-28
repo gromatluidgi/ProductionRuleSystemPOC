@@ -1,8 +1,6 @@
 ﻿using BehavioralCriterias.Core.Ast;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
 
 namespace ProductionRuleSystem.Core.Ast
 {

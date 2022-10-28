@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProductionRuleSystem.Conditions
+﻿namespace ProductionRuleSystem.Conditions
 {
     internal enum ConditionType
     {

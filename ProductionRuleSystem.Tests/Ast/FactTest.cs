@@ -1,8 +1,5 @@
 ﻿using BehavioralCriterias.Core.Ast;
 using ProductionRuleSystem.Core.Ast;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests.Ast

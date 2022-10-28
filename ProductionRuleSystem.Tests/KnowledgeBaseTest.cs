@@ -2,7 +2,6 @@ using BehavioralCriterias.Core.Rules;
 using BehavioralCriterias.Rules;
 using ProductionRuleSystem;
 using ProductionRuleSystem.Core.Ast;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;

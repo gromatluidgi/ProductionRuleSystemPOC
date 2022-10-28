@@ -1,17 +1,25 @@
 ﻿using BehavioralCriterias.Domain;
 using ProductionRuleSystem.Core.Ast;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProductionRuleSystem
 {
-    public static class FactFactory
+    public class FactFactory : IFactFactory
     {
-        public static Fact FromIssue(Issue issue)
+        public Fact From<T>(T domainObject)
         {
-            return new Fact("ISSUE.STATE", issue.State, issue);
+            if (domainObject == null) throw new Exception();
+
+            if (domainObject is Fact) return domainObject as Fact;
+
+            if (domainObject is Issue) return FromIssue(domainObject as Issue);
+
+            throw new System.NotImplementedException();
         }
 
+        protected Fact FromIssue(Issue issue)
+        {
+            return new Fact("", "", issue);
+        }
     }
 }

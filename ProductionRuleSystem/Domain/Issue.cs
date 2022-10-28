@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BehavioralCriterias.Domain
+﻿namespace BehavioralCriterias.Domain
 {
     public class Issue
     {

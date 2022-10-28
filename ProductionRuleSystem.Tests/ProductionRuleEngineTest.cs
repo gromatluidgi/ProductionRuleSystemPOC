@@ -2,14 +2,11 @@
 using BehavioralCriterias.Core.Rules;
 using BehavioralCriterias.Domain;
 using BehavioralCriterias.Rules;
-using ProductionRuleSystem.Actions.Issues;
 using ProductionRuleSystem.Actions.Transactions;
 using ProductionRuleSystem.Conditions;
 using ProductionRuleSystem.Core.Ast;
 using ProductionRuleSystem.Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests
@@ -20,19 +17,22 @@ namespace ProductionRuleSystem.Tests
         public void ForwardChaining()
         {
             // Arrange
-            var fact = new Fact("ISSUE.STATE", "open", new Issue("open"));
-            var workingMemory = new WorkingMemory();
-            workingMemory.AddFact(ref fact);
+            var issue = new Issue("open");
+            var factFactory = new FactFactory();
+            var workingMemory = new WorkingMemory(factFactory);
+            workingMemory.AddFact(issue);
+
             var rule = new RuleItem("test", "test", MockRuleConditionGroup(), MockRuleActionGroup());
             var knowledgeBase = new KnowledgeBase();
             knowledgeBase.AddRule(rule);
+
             var engine = new ProductionRuleEngine(knowledgeBase, workingMemory);
 
             // Act
             engine.ForwardChaining();
 
             // Assert
-            Assert.True(((Issue)fact.Context).State.Equals("infered"));
+            Assert.True(issue.State.Equals("infered"));
         }
 
         [Fact]
@@ -49,11 +49,11 @@ namespace ProductionRuleSystem.Tests
             var c1_t1 = new Fact("TRANSAC.STATE", "PENDING", transaction1);
             var c1_t2 = new Fact("TRANSAC.STATE", "PENDING", transaction2);
 
-
-            var workingMemory = new WorkingMemory();
-            workingMemory.AddFact(ref f_customer1);
-            workingMemory.AddFact(ref c1_t1);
-            workingMemory.AddFact(ref c1_t2);
+            var factFactory = new FactFactory();
+            var workingMemory = new WorkingMemory(factFactory);
+            workingMemory.AddFact(customer1);
+            workingMemory.AddFact(transaction1);
+            workingMemory.AddFact(transaction2);
 
 
             var conditions = new RuleConditionGroup(new List<RuleCondition>()

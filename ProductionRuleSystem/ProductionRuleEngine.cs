@@ -1,4 +1,5 @@
 ﻿using ProductionRuleSystem.Core;
+using ProductionRuleSystem.Core.Engines;
 using System.Linq;
 
 namespace BehavioralCriterias
@@ -19,6 +20,7 @@ namespace BehavioralCriterias
         public IWorkingMemory WorkingMemory => _workingMemory;
 
         public void ForwardChaining() {
+            // this is rudimentary... consider handling conflicts
             var rules = _knowledgeBase.Rules.Where(rule => rule.Evaluate(_workingMemory));
             foreach (var rule in rules)
             {

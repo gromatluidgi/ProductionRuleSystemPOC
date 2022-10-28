@@ -1,7 +1,4 @@
 ﻿using ProductionRuleSystem.Core.Ast;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests
@@ -12,11 +9,12 @@ namespace ProductionRuleSystem.Tests
         public void AddFact()
         {
             // Arrange
-            var workingMemory = new WorkingMemory();
+            var factFactory = new FactFactory();
+            var workingMemory = new WorkingMemory(factFactory);
             var fact = new Fact("Issue.State", "open", null);
 
             // Act
-            workingMemory.AddFact(ref fact);
+            workingMemory.AddFact(fact);
 
             // Assert
             Assert.True(workingMemory.Count() == 1);
@@ -26,21 +24,17 @@ namespace ProductionRuleSystem.Tests
         public void AddFact_Check_Uniqueness()
         {
             // Arrange
-            var workingMemory = new WorkingMemory();
+            var factFactory = new FactFactory();
+            var workingMemory = new WorkingMemory(factFactory);
             var fact = new Fact("Issue.State", "open", null);
             var fact2 = new Fact("Issue.State", "open", null);
 
             // Act
-            workingMemory.AddFact(ref fact);
-            workingMemory.AddFact(ref fact2);
+            workingMemory.AddFact(fact);
+            workingMemory.AddFact(fact2);
 
             // Assert
             Assert.True(workingMemory.Count() == 1);
-        }
-
-        public void IsFact()
-        {
-
         }
     }
 }

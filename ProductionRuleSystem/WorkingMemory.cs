@@ -1,26 +1,25 @@
 ﻿using BehavioralCriterias.Core.Ast;
-using BehavioralCriterias.Core.Rules;
-using BehavioralCriterias.Domain;
 using ProductionRuleSystem.Core;
 using ProductionRuleSystem.Core.Ast;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ProductionRuleSystem
 {
     public class WorkingMemory : IWorkingMemory
     {
         private readonly HashSet<Fact> _facts;
+        private readonly IFactFactory _factFactory;
 
-        public WorkingMemory()
+        public WorkingMemory(IFactFactory factFactory)
         {
+            _factFactory = factFactory;
             _facts = new HashSet<Fact>(new FactComparer());
         }
 
-        public Fact AddFact(ref Fact fact)
+        public Fact AddFact<T>(T input)
         {
+            var fact = _factFactory.From(input);
             _facts.Add(fact);
             return fact;
         }

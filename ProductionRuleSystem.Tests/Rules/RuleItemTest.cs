@@ -1,10 +1,6 @@
-﻿using BehavioralCriterias.Core.Ast;
-using BehavioralCriterias.Domain;
+﻿using BehavioralCriterias.Domain;
 using BehavioralCriterias.Rules;
 using ProductionRuleSystem.Core.Ast;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests.Rules
@@ -17,8 +13,8 @@ namespace ProductionRuleSystem.Tests.Rules
             // Arrange
             var fact = new Fact("ISSUE.STATE", "open", new Issue("open"));
 
-            var workingMemory = new WorkingMemory();
-            workingMemory.AddFact(ref fact);
+            var workingMemory = new WorkingMemory(new FactFactory());
+            workingMemory.AddFact(fact);
 
             var rule = new RuleItem("test", "test", MockRuleConditionGroup(), MockRuleActionGroup());
 

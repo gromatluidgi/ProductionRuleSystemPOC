@@ -1,9 +1,6 @@
-﻿using BehavioralCriterias.Core.Rules;
-using ProductionRuleSystem.Core;
+﻿using ProductionRuleSystem.Core;
 using ProductionRuleSystem.Core.Rules;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BehavioralCriterias.Core.Rules
 {

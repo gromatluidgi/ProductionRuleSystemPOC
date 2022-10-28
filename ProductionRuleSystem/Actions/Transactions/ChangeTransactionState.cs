@@ -3,9 +3,7 @@ using ProductionRuleSystem.Core.Rules;
 using ProductionRuleSystem.Core;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using ProductionRuleSystem.Domain;
-using System.Linq;
 using ProductionRuleSystem.Core.Ast;
 
 namespace ProductionRuleSystem.Actions.Transactions

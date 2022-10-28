@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProductionRuleSystem.Core
+﻿namespace ProductionRuleSystem.Core.Engines
 {
     public interface IProductionRuleEngine
     {
@@ -10,6 +6,8 @@ namespace ProductionRuleSystem.Core
 
         IWorkingMemory WorkingMemory { get; }
 
+
         void ForwardChaining();
+
     }
 }

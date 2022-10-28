@@ -1,9 +1,7 @@
-﻿using BehavioralCriterias.Core.Ast;
-using BehavioralCriterias.Core.Rules;
+﻿using BehavioralCriterias.Core.Rules;
 using BehavioralCriterias.Domain;
 using ProductionRuleSystem.Core;
 using ProductionRuleSystem.Core.Rules;
-using System;
 using System.Linq;
 
 namespace ProductionRuleSystem.Actions.Issues

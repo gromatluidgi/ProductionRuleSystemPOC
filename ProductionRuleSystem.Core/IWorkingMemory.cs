@@ -1,9 +1,6 @@
 ﻿using BehavioralCriterias.Core.Ast;
-using BehavioralCriterias.Core.Rules;
 using ProductionRuleSystem.Core.Ast;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProductionRuleSystem.Core
 {
@@ -13,7 +10,7 @@ namespace ProductionRuleSystem.Core
 
         int Count();
 
-        Fact AddFact(ref Fact fact);
+        Fact AddFact<T>(T input);
 
         IEnumerable<Fact> GetFacts(string variable);
     }

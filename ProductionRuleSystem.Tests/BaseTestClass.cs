@@ -2,9 +2,7 @@
 using ProductionRuleSystem.Actions.Issues;
 using ProductionRuleSystem.Conditions;
 using ProductionRuleSystem.Core;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProductionRuleSystem.Tests
 {
@@ -12,7 +10,7 @@ namespace ProductionRuleSystem.Tests
     {
         protected virtual IWorkingMemory MockWorkingMemory()
         {
-            return new WorkingMemory();
+            return new WorkingMemory(new FactFactory());
         }
 
         protected virtual IKnowledgeBase MockKnowledgeBase()

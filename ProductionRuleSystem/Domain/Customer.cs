@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProductionRuleSystem.Domain
+﻿namespace ProductionRuleSystem.Domain
 {
     public class Customer
     {
