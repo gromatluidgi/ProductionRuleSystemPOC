@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductionRuleSystem.Core",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductionRuleSystem.Tests", "ProductionRuleSystem.Tests\ProductionRuleSystem.Tests.csproj", "{6B61EBE3-ADEA-4AE7-B915-390FD4CF0DCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductionRuleSystem.EFCore", "ProductionRuleSystem.EFCore\ProductionRuleSystem.EFCore.csproj", "{6DF2D67C-0DFA-40DF-ADC2-7B89CE448A33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6B61EBE3-ADEA-4AE7-B915-390FD4CF0DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B61EBE3-ADEA-4AE7-B915-390FD4CF0DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B61EBE3-ADEA-4AE7-B915-390FD4CF0DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF2D67C-0DFA-40DF-ADC2-7B89CE448A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF2D67C-0DFA-40DF-ADC2-7B89CE448A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF2D67C-0DFA-40DF-ADC2-7B89CE448A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF2D67C-0DFA-40DF-ADC2-7B89CE448A33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

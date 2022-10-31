@@ -1,6 +1,7 @@
 ﻿using ProductionRuleSystem.Core;
 using ProductionRuleSystem.Core.Rules;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BehavioralCriterias.Core.Rules
 {
@@ -25,7 +26,7 @@ namespace BehavioralCriterias.Core.Rules
             List<RuleActionResult> result = new List<RuleActionResult>();
             foreach (var ruleAction in _actions)
             {
-                result.Add(ruleAction.Execute(workingMemory));
+                result.AddRange(ruleAction.Execute(workingMemory));
             }
             return result;
         }

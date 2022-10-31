@@ -33,7 +33,7 @@ namespace BehavioralCriterias.Tests
             knowledgeBase.AddRule(rule);
 
             // Assert
-            Assert.True(knowledgeBase.Rules.ToList().Count == 1);
+            Assert.True(knowledgeBase.GetRules().ToList().Count == 1);
         }
     }
 }

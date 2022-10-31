@@ -1,4 +1,4 @@
-﻿namespace ProductionRuleSystem.Core.Engines
+﻿namespace ProductionRuleSystem.Core
 {
     public interface IProductionRuleEngine
     {

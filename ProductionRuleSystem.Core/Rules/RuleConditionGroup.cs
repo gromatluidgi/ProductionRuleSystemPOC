@@ -19,7 +19,7 @@ namespace BehavioralCriterias.Core.Rules
             _conditions.Add(ruleCondition);
         }
 
-        public bool Match(Expression fact)
+        public bool Match(Expression<object> fact)
         {
             foreach(var ruleCondition in _conditions)
             {

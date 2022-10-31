@@ -1,20 +1,21 @@
-﻿using System;
+﻿using ProductionRuleSystem.Core.Ast;
+using System;
 
 namespace BehavioralCriterias.Core.Ast
 {
-    public abstract class Expression
+    public abstract class Expression<T>
     {
         private readonly string _variable;
-        private readonly string _value;
+        private readonly T _value;
         private readonly string _operator = "";
 
-        protected Expression(string variable, string value)
+        protected Expression(string variable, T value)
         {
             _variable = variable;
             _value = value;
         }
 
-        protected Expression(string variable, string value, string ope)
+        protected Expression(string variable, T value, string ope)
         {
             _variable = variable;
             _value = value;
@@ -22,15 +23,17 @@ namespace BehavioralCriterias.Core.Ast
         }
 
         public string Variable => _variable;
-        public string Value => _value;
+        public T Value => _value;
         public string Operator => _operator;
+        
+        public abstract ExpressionType Type { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="rhs">The tested fact.</param>
         /// <returns></returns>
-        public virtual IntersectionType MatchExpression(Expression rhs)
+        public virtual IntersectionType MatchExpression(Expression<T> rhs)
         {
             // Ensure that the given expression type match the current expression
             // If not, the evaluation can't be performed
@@ -41,9 +44,6 @@ namespace BehavioralCriterias.Core.Ast
             return Intersect(rhs);
         }
 
-        public virtual IntersectionType Intersect(Expression rhs)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IntersectionType Intersect(Expression<T> rhs);
     }
 }

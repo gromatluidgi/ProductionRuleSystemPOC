@@ -2,6 +2,7 @@
 using ProductionRuleSystem.Actions.Issues;
 using ProductionRuleSystem.Conditions;
 using ProductionRuleSystem.Core;
+using ProductionRuleSystem.Core.Facts;
 using System.Collections.Generic;
 
 namespace ProductionRuleSystem.Tests
@@ -22,7 +23,7 @@ namespace ProductionRuleSystem.Tests
         {
             return new RuleConditionGroup(new List<RuleCondition>()
             {
-                new IssueCondition("ISSUE.STATE", "open", "=")
+                new IssueCondition("issue", "open", "=")
             });
         }
 
@@ -30,7 +31,10 @@ namespace ProductionRuleSystem.Tests
         {
             return new RuleActionGroup(new List<RuleAction>()
             {
-                new ChangeIssueStateAction("ISSUE.STATE", "infered")
+                new ChangeIssueStateAction(string.Empty, new List<FactAttribute>()
+                {
+                    new FactAttribute("state", "close")
+                })
             });
         }
     }

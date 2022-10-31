@@ -1,6 +1,6 @@
 ﻿using BehavioralCriterias.Core.Ast;
 using ProductionRuleSystem.Core;
-using ProductionRuleSystem.Core.Ast;
+using ProductionRuleSystem.Core.Facts;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,16 +17,19 @@ namespace ProductionRuleSystem
             _facts = new HashSet<Fact>(new FactComparer());
         }
 
-        public Fact AddFact<T>(T input)
+        public void AddFact<T>(T input) where T : class
         {
-            var fact = _factFactory.From(input);
-            _facts.Add(fact);
-            return fact;
+            _facts.Add(_factFactory.From(input));
         }
 
         public int Count()
         {
             return _facts.Count;
+        }
+
+        public Fact GetFact(string variable, object value)
+        {
+            return _facts.FirstOrDefault(f => f.Variable.Equals(variable) && f.Value.Equals(value));
         }
 
         public IEnumerable<Fact> GetFacts(string variable)
@@ -35,11 +38,11 @@ namespace ProductionRuleSystem
         }
 
         // Check if the expression match a fact
-        public bool IsFact(Expression expression)
+        public bool IsFact(Expression<object> expression)
         {
             foreach(Fact fact in _facts)
             {
-                if (fact.MatchExpression(expression) == IntersectionType.INCLUDE)
+                if (expression.MatchExpression(fact) == IntersectionType.INCLUDE)
                 {
                     return true;
                 }

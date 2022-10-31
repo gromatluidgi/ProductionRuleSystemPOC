@@ -9,6 +9,8 @@ namespace BehavioralCriterias.Core.Rules
         public abstract string Name { get; }
         public abstract string Description { get; }
 
+        public abstract bool IsExecuted { get; }
+
         /// <summary>
         /// Antecedents
         /// </summary>

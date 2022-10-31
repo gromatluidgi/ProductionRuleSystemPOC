@@ -2,10 +2,13 @@
 {
     public class Issue
     {
-        public Issue(string state)
+        public Issue(int id, string state)
         {
+            Id = id;
             State = state;
         }
+
+        public int Id { get; }
 
         public string State { get; set; }
     }

@@ -1,6 +1,7 @@
 ﻿using BehavioralCriterias.Core.Rules;
 using ProductionRuleSystem.Core;
 using ProductionRuleSystem.Core.Rules;
+using System;
 using System.Collections.Generic;
 
 namespace BehavioralCriterias.Rules
@@ -11,6 +12,8 @@ namespace BehavioralCriterias.Rules
         private readonly string _description;
         private readonly RuleConditionGroup _conditions;
         private readonly RuleActionGroup _actions;
+
+        private bool _isExecuted = false;
 
         public RuleItem(string name, string description, RuleConditionGroup conditions, RuleActionGroup actions)
         {
@@ -28,6 +31,8 @@ namespace BehavioralCriterias.Rules
 
         public override RuleActionGroup Actions => _actions;
 
+        public override bool IsExecuted => _isExecuted;
+
         public override bool Evaluate(IWorkingMemory memory)
         {
             // Evaluate if every specified condition match a fact
@@ -40,6 +45,8 @@ namespace BehavioralCriterias.Rules
 
         public override IEnumerable<RuleActionResult> Execute(IWorkingMemory workingMemory)
         {
+            if (_isExecuted) throw new Exception();
+            _isExecuted = true;
             return _actions.Execute(workingMemory);
         }
     }

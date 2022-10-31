@@ -10,10 +10,15 @@ namespace ProductionRuleSystem.Conditions
         {
         }
 
-        public override bool Evaluate(Expression condition)
+        public override bool Evaluate(Expression<object> condition)
         {
             if (condition == null) throw new ArgumentNullException(nameof(condition));
             return MatchExpression(condition) == IntersectionType.INCLUDE;
+        }
+
+        public override IntersectionType Intersect(Expression<object> rhs)
+        {
+            throw new NotImplementedException();
         }
     }
 }

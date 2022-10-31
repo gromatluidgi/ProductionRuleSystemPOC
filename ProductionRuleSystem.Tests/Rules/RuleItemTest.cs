@@ -1,6 +1,5 @@
 ﻿using BehavioralCriterias.Domain;
 using BehavioralCriterias.Rules;
-using ProductionRuleSystem.Core.Ast;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests.Rules
@@ -11,10 +10,9 @@ namespace ProductionRuleSystem.Tests.Rules
         public void Evaluate()
         {
             // Arrange
-            var fact = new Fact("ISSUE.STATE", "open", new Issue("open"));
-
+            var issue = new Issue(0, "open");
             var workingMemory = new WorkingMemory(new FactFactory());
-            workingMemory.AddFact(fact);
+            workingMemory.AddFact(issue);
 
             var rule = new RuleItem("test", "test", MockRuleConditionGroup(), MockRuleActionGroup());
 

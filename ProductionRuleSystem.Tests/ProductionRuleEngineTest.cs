@@ -4,20 +4,20 @@ using BehavioralCriterias.Domain;
 using BehavioralCriterias.Rules;
 using ProductionRuleSystem.Actions.Transactions;
 using ProductionRuleSystem.Conditions;
-using ProductionRuleSystem.Core.Ast;
 using ProductionRuleSystem.Domain;
 using System.Collections.Generic;
 using Xunit;
+using FactAttribute = ProductionRuleSystem.Core.Facts.FactAttribute;
 
 namespace ProductionRuleSystem.Tests
 {
     public class ProductionRuleEngineTest : BaseTestClass
     {
-        [Fact]
+        [Xunit.Fact]
         public void ForwardChaining()
         {
             // Arrange
-            var issue = new Issue("open");
+            var issue = new Issue(0, "open");
             var factFactory = new FactFactory();
             var workingMemory = new WorkingMemory(factFactory);
             workingMemory.AddFact(issue);
@@ -35,7 +35,7 @@ namespace ProductionRuleSystem.Tests
             Assert.True(issue.State.Equals("infered"));
         }
 
-        [Fact]
+        [Xunit.Fact]
         public void ForwardChaining_Mixed()
         {
             // Arrange
@@ -45,9 +45,9 @@ namespace ProductionRuleSystem.Tests
             var transaction2 = new Transaction(customer1, 20);
 
 
-            var f_customer1 = new Fact("CUSTOMER.NAME", "John", customer1);
-            var c1_t1 = new Fact("TRANSAC.STATE", "PENDING", transaction1);
-            var c1_t2 = new Fact("TRANSAC.STATE", "PENDING", transaction2);
+            //var f_customer1 = new Fact("CUSTOMER.NAME", "John", customer1);
+            //var c1_t1 = new Fact("TRANSAC.STATE", "PENDING", transaction1);
+            //var c1_t2 = new Fact("TRANSAC.STATE", "PENDING", transaction2);
 
             var factFactory = new FactFactory();
             var workingMemory = new WorkingMemory(factFactory);
@@ -63,7 +63,7 @@ namespace ProductionRuleSystem.Tests
 
             var actions = new RuleActionGroup(new List<RuleAction>()
             {
-                new ChangeTransactionState("TRANSAC.STATE", "APPROVED", "=")
+                new ChangeTransactionState("TRANSAC.STATE", "APPROVED", new List<FactAttribute>())
             });
 
             var rule = new RuleItem("test", "test", conditions, actions);

@@ -1,16 +1,16 @@
 ﻿using BehavioralCriterias.Core.Ast;
-using ProductionRuleSystem.Core.Ast;
+using ProductionRuleSystem.Core.Facts;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests.Ast
 {
     public class FactTest
     {
-        [Fact]
+        [Xunit.Fact]
         public void Intersect_Returns_Include()
         {
             // Arrange
-            var lhs = new Fact("Issue.State", "open", null, "=");
+            var lhs = new Fact("Issue.State", "open", null);
             var rhs = new Fact("Issue.State", "open", null);
 
             // Act
@@ -20,11 +20,11 @@ namespace ProductionRuleSystem.Tests.Ast
             Assert.True(result.Equals(IntersectionType.INCLUDE));
         }
 
-        [Fact]
+        [Xunit.Fact]
         public void Intersect_Returns_Exclude()
         {
             // Arrange
-            var lhs = new Fact("Issue.State", "open", null, "=");
+            var lhs = new Fact("Issue.State", "open", null);
             var rhs = new Fact("Issue.State", "close", null);
 
             // Act
@@ -34,7 +34,7 @@ namespace ProductionRuleSystem.Tests.Ast
             Assert.True(result.Equals(IntersectionType.MUTUALLY_EXCLUDE));
         }
 
-        [Fact]
+        [Xunit.Fact]
         public void Intersect_Returns_Unkonwn()
         {
             // Arrange

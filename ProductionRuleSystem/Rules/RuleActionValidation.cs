@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProductionRuleSystem.Core.Engines
+namespace ProductionRuleSystem.Rules
 {
-    public sealed class RuleEngineResult
+    internal class RuleActionValidation
     {
     }
 }

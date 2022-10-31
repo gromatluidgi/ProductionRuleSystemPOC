@@ -1,4 +1,4 @@
-# Production Rule System Playground
+# Expert System Playground
 
 ![Expert System](docs/study/ExpertSystem.gif)
 
@@ -38,12 +38,33 @@ The inference engine, allows new knowledge to be inferred.
 ## Definitions
 
 - Inference Engine
+  - Universal Quantification
+  - Existential Quantification
 - **Semantic Reasoner** : A semantic reasoner, reasoning engine, rules engine, or simply a reasoner, is a piece of software able to infer logical consequences from a set of asserted facts or axioms (https://en.wikipedia.org/wiki/Semantic_reasoner)
 - Inductive Inference/Reasoning
-- Forward Chaining
+- Forward Chaining - https://en.wikipedia.org/wiki/Forward_chaining
 - Backward Chaining
 - Truth Table
+- Domain Specific Language - https://martinfowler.com/bliki/BusinessReadableDSL.html
+- 
 
-## Books
+## Potential Pitfalls
+
+- Passing fact as reference into the working memory.
+- Memory requirements:
+  - Storing facts
+  - Inference process
+- Persistence:
+  - Entity Attribute Value (EAV)
+
+## Books & References
 
 - Geometric and Topological Inference
+- CLIPS - https://www.clipsrules.net/
+- Dealing with properties by Martin Fawler - https://martinfowler.com/apsupp/properties.pdf
+  - Fixed Property
+  - Dynamic Property
+  - Flexible Dynamic Property (string as parameter)
+  - Typed Dynamic Property
+  - Separate Properties
+  - Dynamic Property Knowledge Level

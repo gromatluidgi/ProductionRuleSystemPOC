@@ -1,4 +1,4 @@
-﻿using ProductionRuleSystem.Core.Ast;
+﻿using BehavioralCriterias.Domain;
 using Xunit;
 
 namespace ProductionRuleSystem.Tests
@@ -9,12 +9,12 @@ namespace ProductionRuleSystem.Tests
         public void AddFact()
         {
             // Arrange
+            var issue = new Issue(0, "open");
             var factFactory = new FactFactory();
             var workingMemory = new WorkingMemory(factFactory);
-            var fact = new Fact("Issue.State", "open", null);
 
             // Act
-            workingMemory.AddFact(fact);
+            workingMemory.AddFact(issue);
 
             // Assert
             Assert.True(workingMemory.Count() == 1);
@@ -26,12 +26,12 @@ namespace ProductionRuleSystem.Tests
             // Arrange
             var factFactory = new FactFactory();
             var workingMemory = new WorkingMemory(factFactory);
-            var fact = new Fact("Issue.State", "open", null);
-            var fact2 = new Fact("Issue.State", "open", null);
+            var issue = new Issue(0, "open");
+
 
             // Act
-            workingMemory.AddFact(fact);
-            workingMemory.AddFact(fact2);
+            workingMemory.AddFact(issue);
+            workingMemory.AddFact(issue);
 
             // Assert
             Assert.True(workingMemory.Count() == 1);
